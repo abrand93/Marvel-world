@@ -1,5 +1,6 @@
 .container{
     height: 100vh;
+    background-image:url(54677.jpg) ;
 }
 h1{
     display:flex;

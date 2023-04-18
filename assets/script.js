@@ -2,6 +2,7 @@ var inputEl = $('#input');
 var searchBtn = $('#search');
 var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket','Scarlet Witch','Shuri','Spider-Man','Star-Lord','Thor','Valkyrie','War Machine','Wasp','Wong']
 var randomBtn = $('#random')
+var selectEl = $('select');
 
 
 searchBtn.on('click',function(){
@@ -40,3 +41,12 @@ randomBtn.on('click', function(){
     .then((res) => res.json())
     .then((data) => console.log(data))
 })
+
+selectEl.on('change', function() {
+    var nameChar = $(this).val();
+    var imdbUrl = "https://imdb-api.com/en/API/SearchSeries/k_h6mhz1ew/" + nameChar
+    
+    fetch(imdbUrl)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+  });

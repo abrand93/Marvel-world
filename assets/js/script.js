@@ -3,7 +3,7 @@ var searchBtn = $('#search');
 var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket','Scarlet Witch','Shuri','Spider-Man','Star-Lord','Thor','Valkyrie','War Machine','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
-
+var card = document.querySelector('#card')
     //auto-complete functionality
     $(document).ready(function(){
         $('#input').on("input",function(){ //input event listener triggered whenever a user types into search bar
@@ -42,12 +42,12 @@ searchBtn.on('click',function(){
 // MARVEL fetch request
     fetch(marvelUrl)
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => MarvelCard(data))
 
 //OMDB fetch request
-    fetch(imdbUrl)
-    .then((res) => res.json())
-    .then((data) => console.log(data))
+   // fetch(imdbUrl)
+    //.then((res) => res.json())
+    //.then((data) => console.log(data))
 
     
 
@@ -64,9 +64,34 @@ randomBtn.on('click', function(){
 
     fetch(marvelUrl)
         .then((res) => res.json())
-        .then((data) => console.log(data))
-        fetch(imdbUrl)
-        .then((res) => res.json())
-        .then((data) => console.log(data))
+        
+        .then((data) =>  MarvelCard(data))
+      // fetch(imdbUrl)
+       // .then((res) => res.json())
+       // .then((data) =>console.log(data))
+       
+        
+       
     })
+
+    function MarvelCard(data){
+        $("#card").empty()
+        var thumbNail = document.createElement('img')
+       var thumbNailRes = data.data.results[0].thumbnail.path
+        thumbNail.setAttribute('src',thumbNailRes+'.jpg')
+        var div = document.createElement('div')
+        var avengerName = document.createElement('h2')
+        var description = document.createElement('p')
+        avengerName.textContent = data.data.results[0].name
+        card.appendChild(div)
+        div.classList = 'bg-red-700'
+        div.appendChild(avengerName)
+        div.appendChild(description)
+        description.textContent = data.data.results[0].description
+        card.appendChild(thumbNail)
+        console.log(data.data.results[0].name)
+        console.log(data)
+        console.log(thumbNailRes)
+       
+    }
 

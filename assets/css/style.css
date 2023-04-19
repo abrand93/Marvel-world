@@ -1,0 +1,41 @@
+:root{
+    --dark : rgba(0, 0, 0, 0.787);
+    
+}
+
+body{
+    background-image:url(../img/54677.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
+}
+.container{
+    height: 40vh;
+    
+    
+}
+header{
+    height: 20vh;
+    margin-top: 0%;
+    margin-bottom: 0px;
+    background-color: var(--dark)
+}
+h1{  
+    color: rgb(184, 22, 22);    
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+button{
+    background-color: black;
+    color: white;
+}
+
+.search-form{
+    background-color: var(--dark);
+}
+
+select{
+background-color: rgb(65, 63, 63);
+color: white;
+}

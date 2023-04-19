@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Marvel</title>     
+    <!--Tailwind-->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/style.css"> 
+    <!--JQUERY UI-->
+   <!-- Include the required jQuery and jQuery UI libraries -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
 
 <body>
-    <header class="">
+    <header class="flex justify-center items-center text-8xl">
         <h1>World Of Marvel</h1>
     </header>
-    <div class="flex container place-content-center items-center">
-        <div class="mx-auto ">
-            <button id="random" class="bg-red-700"> Chose a random Avenger</button>
-            <button id="search" class='bg-red-700'>Search</button>
-          <select>
+    <div class="flex container mx-auto justify-center items-end">
+        <div class="search-form mx-auto px-10 py-8 rounded-lg grid grid-cols-4 grid-rows-1 gap-6">
+            <input type="text" placeholder="Search a marvel character" class="col-span-3 p-3 rounded" id="input">
+           
+            
+            <button id="search" class='bg-red-700 rounded p-2 text-white' type="button">Search</button>
+            <button type="button" id="random" class="bg-red-700 rounded p-2 text-white"> Pick a random Avenger</button>
+
+          <select  class="p-2 rounded" id="avengers">
+            <option disabled selected>Avengers</option>
             <option>Ant-Man</option>
             <option>Black Panther </option>
             <option>Bucky</option>
@@ -51,6 +63,6 @@
     
 
 </body> 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>  
-<script src="./assets/script.js"></script>
-</html>
+<!--Jquery-->
+<script src="./assets/js/script.js"></script>
+</html> 

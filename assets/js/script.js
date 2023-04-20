@@ -2,7 +2,9 @@ var inputEl = $('#input');
 var searchBtn = $('#search');
 var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket','Scarlet Witch','Shuri','Spider-Man','Star-Lord','Thor','Valkyrie','War Machine','Wasp','Wong']
 var randomBtn = $('#random')
+
 var dataList = $('#names')
+
 var card = document.querySelector('#card')
     //auto-complete functionality
     $(document).ready(function(){
@@ -120,3 +122,5 @@ function getCharacterName(title){
     var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
     return characterName;
 }
+
+

@@ -39,3 +39,7 @@ select{
 background-color: rgb(65, 63, 63);
 color: white;
 }
+
+.modal{
+    background-color: var(--dark);
+}

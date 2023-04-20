@@ -94,4 +94,17 @@ randomBtn.on('click', function(){
         console.log(thumbNailRes)
        
     }
+var searchTerm = getCharacterName('Spider-Man (12344)');
 
+var maxChars = 20;
+// wiki api 
+fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`)
+.then((data)=>data.json())
+.then((result)=>console.log(result))
+
+// Getting character name from reponse object title
+function getCharacterName(title){
+    var index = title.indexOf("(");  // Find the index of the opening parenthesis
+    var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
+    return characterName;
+}

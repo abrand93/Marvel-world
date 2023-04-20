@@ -3,6 +3,8 @@ var searchBtn = $('#search');
 var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket','Scarlet Witch','Shuri','Spider-Man','Star-Lord','Thor','Valkyrie','War Machine','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
+var modalDisplay = $('#modal')
+var closeBtn = $('#close-button')
 var card = document.querySelector('#card')
 var maxChars = 200
 
@@ -73,8 +75,7 @@ randomBtn.on('click', function(){
     var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${randomCharIs}&exchars=20&exintro=1&explaintext=1&redirects=1&origin=*`;  
 
     fetch(marvelUrl)
-        .then((res) => res.json())
-        
+        .then((res) => res.json())        
         .then((data) =>  MarvelCard(data))
       
         fetch(wikiUrl)
@@ -158,4 +159,10 @@ function wikiCard(data){
 //     var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
 //     return characterName;
 // }
+
+   //close button to hide modal
+//close button event listener
+closeBtn.on('click',function(){
+    modalDisplay.classList.remove('hidden')
+})
 

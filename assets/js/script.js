@@ -39,6 +39,14 @@ searchBtn.on('click',function(){
     var nameChar = inputEl.val()
     var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name="+nameChar+"&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe"
     var imdbUrl = "https://imdb-api.com/en/API/SearchSeries/k_h6mhz1ew/" + nameChar   
+
+        // Save search input to local storage
+        var searches = JSON.parse(localStorage.getItem('searches')) || [];
+        if (searches.indexOf(nameChar) === -1) {
+            searches.push(nameChar);
+            localStorage.setItem('searches', JSON.stringify(searches));
+        }
+        
 // MARVEL fetch request
     fetch(marvelUrl)
     .then((res) => res.json())

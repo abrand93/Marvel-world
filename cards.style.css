@@ -2,10 +2,10 @@
     height: 100vh;
 }
 /* THIS IS ALL FOR CARD */
-body {
+.sectionCard {
     width: 100vw;
     height: 100vh;
-    background: gray;
+   
     display: flex;
     align-items: center;
     justify-content: center;

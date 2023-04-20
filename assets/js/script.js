@@ -88,15 +88,19 @@ randomBtn.on('click', function(){
        var thumbNailRes = data.data.results[0].thumbnail.path
         thumbNail.setAttribute('src',thumbNailRes+'.jpg')
         var div = document.createElement('div')
+        div.classList = 'h-screen flex items-center justify-center'
         var avengerName = document.createElement('h2')
         var description = document.createElement('p')
         avengerName.textContent = data.data.results[0].name
+        avengerName.classList = "text-center text-2xl "
+        thumbNail.classlist = "content-center"
         card.appendChild(div)
         div.classList = 'bg-red-700'
         div.appendChild(avengerName)
-        div.appendChild(description)
+       
         description.textContent = data.data.results[0].description
         card.appendChild(thumbNail)
+        div.appendChild(description)
         console.log(data.data.results[0].name)
         console.log(data)
         console.log(thumbNailRes)

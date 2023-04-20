@@ -81,9 +81,9 @@ randomBtn.on('click', function(){
       
         fetch(wikiUrl)
        .then((res) => res.json())
-       .then((data) => console.log(data))
+       .then((data) => wikiCard(data))
       
-
+        
         
        
     })
@@ -96,23 +96,23 @@ randomBtn.on('click', function(){
 // this part contains a ready function but we need to meet before using it how ever you can view the data in console log
 
 
-// function wikiCard(data){
+ function wikiCard(data){
 
-//     $("#card").empty();
-//     var description = document.createElement('p');
-//     var pageId = Object.keys(data.query.pages)[0];
-//     description.innerHTML = data.query.pages[pageId].extract;
-//     var div = document.createElement('div');
-//     div.classList = 'h-screen flex items-center justify-center';
-//     var avengerName = document.createElement('h2');
-//     avengerName.textContent = data.query.pages[pageId].title;
-//     avengerName.classList = "text-center text-2xl ";
-//     div.classList = 'bg-red-700';
-//     card.appendChild(div);
-//     div.appendChild(avengerName);
-//     div.appendChild(description);
-//     console.log(description)
-// }
+    $("#wikiCard").empty();
+    var description = document.createElement('p');
+    var pageId = Object.keys(data.query.pages)[0];
+    description.innerHTML = data.query.pages[pageId].extract;
+    var div = document.createElement('div');
+    div.classList = 'h-screen flex items-center justify-center';
+    var avengerName = document.createElement('h2');
+    avengerName.textContent = data.query.pages[pageId].title;
+    avengerName.classList = "text-center text-2xl ";
+    div.classList = 'bg-red-700';
+    cardTwo.appendChild(div);
+    div.appendChild(avengerName);
+    div.appendChild(description);
+    console.log(description)
+}
 
 
 
@@ -145,7 +145,23 @@ randomBtn.on('click', function(){
         // console.log(data.data.results[0].name)
         // console.log(data)
         // console.log(thumbNailRes)
-        
+
+        $(wikiButton).on( 'click', function (){
+            card.classList = 'hide'
+            cardTwo.classList.remove("hide")
+            var goBack = document.createElement("BUTTON")
+            cardTwo.appendChild(goBack)
+            goBack.textContent = 'Back'
+            $(goBack).on('click',function (){
+                card.classList.remove('hide')
+                cardTwo.classList= 'hide'
+                card.classList = 'container mx-auto px-4 content-center max-w-md m-2 rounded'
+
+            })
+
+
+        })
+            
         
        
     }

@@ -43,3 +43,6 @@ color: white;
     font-family: 'Sedgwick Ave Display', cursive;
 
 }
+.hide{
+    display: none;
+}

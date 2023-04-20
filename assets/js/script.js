@@ -1,6 +1,6 @@
 var inputEl = $('#input');
 var searchBtn = $('#search');
-var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket','Scarlet Witch','Shuri','Spider-Man','Star-Lord','Thor','Valkyrie','War Machine','Wasp','Wong']
+var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie','War Machine','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
 var card = document.querySelector('#card')

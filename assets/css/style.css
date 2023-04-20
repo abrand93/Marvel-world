@@ -39,7 +39,7 @@ select{
 background-color: rgb(65, 63, 63);
 color: white;
 }
+.font{
+    font-family: 'Sedgwick Ave Display', cursive;
 
-.modal{
-    background-color: var(--dark);
 }

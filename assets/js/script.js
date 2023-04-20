@@ -3,6 +3,8 @@ var searchBtn = $('#search');
 var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie (Samantha Parrington)','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
+var modalDisplay = $('#modal')
+var closeBtn = $('#close-button')
 var card = document.querySelector('#card')
  var cardTwo = document.querySelector('#wikiCard')
 var maxChars = 200
@@ -75,8 +77,7 @@ randomBtn.on('click', function(){
     var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${randomCharIs}&exchars=1000&exintro=1&explaintext=2&redirects=1&origin=*`;  
 
     fetch(marvelUrl)
-        .then((res) => res.json())
-        
+        .then((res) => res.json())        
         .then((data) =>  MarvelCard(data))
       
         fetch(wikiUrl)
@@ -183,4 +184,10 @@ randomBtn.on('click', function(){
 //     var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
 //     return characterName;
 // }
+
+   //close button to hide modal
+//close button event listener
+closeBtn.on('click',function(){
+    modalDisplay.classList.remove('hidden')
+})
 

@@ -1,10 +1,12 @@
 var inputEl = $('#input');
 var searchBtn = $('#search');
-var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
+var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie (Samantha Parrington)','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
 var card = document.querySelector('#card')
+ var cardTwo = document.querySelector('#wikiCard')
 var maxChars = 200
+
 
     //auto-complete functionality
     $(document).ready(function(){
@@ -70,7 +72,7 @@ randomBtn.on('click', function(){
     var randomCharIs = charNames[randomChar]
     console.log(randomCharIs)
     var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name="+randomCharIs+"&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe"
-    var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${randomCharIs}&exchars=20&exintro=1&explaintext=1&redirects=1&origin=*`;  
+    var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${randomCharIs}&exchars=1000&exintro=1&explaintext=2&redirects=1&origin=*`;  
 
     fetch(marvelUrl)
         .then((res) => res.json())
@@ -89,28 +91,30 @@ randomBtn.on('click', function(){
 
 
 
-/* 
-
-this part contains a ready function but we need to meet before using it how ever you can view the data in console log
 
 
-function wikiCard(data){
-    $("#card").empty();
-    var description = document.createElement('p');
-    var pageId = Object.keys(data.query.pages)[0];
-    description.innerHTML = data.query.pages[pageId].extract;
-    var div = document.createElement('div');
-    div.classList = 'h-screen flex items-center justify-center';
-    var avengerName = document.createElement('h2');
-    avengerName.textContent = data.query.pages[pageId].title;
-    avengerName.classList = "text-center text-2xl ";
-    div.classList = 'bg-red-700';
-    card.appendChild(div);
-    div.appendChild(avengerName);
-    div.appendChild(description);
-}
+// this part contains a ready function but we need to meet before using it how ever you can view the data in console log
 
-*/
+
+// function wikiCard(data){
+
+//     $("#card").empty();
+//     var description = document.createElement('p');
+//     var pageId = Object.keys(data.query.pages)[0];
+//     description.innerHTML = data.query.pages[pageId].extract;
+//     var div = document.createElement('div');
+//     div.classList = 'h-screen flex items-center justify-center';
+//     var avengerName = document.createElement('h2');
+//     avengerName.textContent = data.query.pages[pageId].title;
+//     avengerName.classList = "text-center text-2xl ";
+//     div.classList = 'bg-red-700';
+//     card.appendChild(div);
+//     div.appendChild(avengerName);
+//     div.appendChild(description);
+//     console.log(description)
+// }
+
+
 
 
 
@@ -129,15 +133,20 @@ function wikiCard(data){
         thumbNail.classList = "content-center"
         description.classList = "p-5 m-2 font"
         card.appendChild(div)
-        div.classList = 'bg-red-700 rounded-lg'
+        div.classList = 'bg-red-700 rounded-lg shadow-2xl shadow-red-700'
         div.appendChild(avengerName)
-       
+        
         description.textContent = data.data.results[0].description
         div.appendChild(thumbNail)
         div.appendChild(description)
-        console.log(data.data.results[0].name)
-        console.log(data)
-        console.log(thumbNailRes)
+        wikiButton = document.createElement("BUTTON")
+        div.appendChild(wikiButton)
+        wikiButton.textContent = "Click for more info"
+        // console.log(data.data.results[0].name)
+        // console.log(data)
+        // console.log(thumbNailRes)
+        
+        
        
     }
 

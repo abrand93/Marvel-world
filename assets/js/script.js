@@ -4,14 +4,15 @@ var charNames = ['Ant-Man', 'Black Panther','Bucky','Captain America','Captain M
 var randomBtn = $('#random')
 var dataList = $('#names')
 var card = document.querySelector('#card')
+var maxChars = 200
+
     //auto-complete functionality
     $(document).ready(function(){
         $('#input').on("input",function(){ //input event listener triggered whenever a user types into search bar
             dataList.empty()
             var query = $(this).val()
             if(query.length >3){//minimum number of characthers that trigger autocomplete
-                var marvelUrl = "http://gateway.marvel.com/v1/public/characters?nameStartsWith="+query+"&apikey=3a63bd6dec07e5572fe2f09b18064abe"
-                    
+                var marvelUrl = "http://gateway.marvel.com/v1/public/characters?nameStartsWith="+query+"&apikey=3a63bd6dec07e5572fe2f09b18064abe" 
                     fetch(marvelUrl)
                     .then((res) => res.json())
                     .then(function(data) {
@@ -35,31 +36,32 @@ var card = document.querySelector('#card')
      
     //search functionality
 //search button event listener
-searchBtn.on('click',function(){
-    var nameChar = inputEl.val()
-    var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name="+nameChar+"&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe"
-    var imdbUrl = "https://imdb-api.com/en/API/SearchSeries/k_h6mhz1ew/" + nameChar   
+searchBtn.on('click', function() {
+    var nameChar = inputEl.val();
+    var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name=" + nameChar + "&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe";
+    var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${nameChar}&exchars=250&exintro=1&explaintext=1&redirects=1&origin=*`;
 
-        // Save search input to local storage
-        var searches = JSON.parse(localStorage.getItem('searches')) || [];
-        if (searches.indexOf(nameChar) === -1) {
-            searches.push(nameChar);
-            localStorage.setItem('searches', JSON.stringify(searches));
-        }
-        
-// MARVEL fetch request
+
+    // Save search input to local storage
+    var searches = JSON.parse(localStorage.getItem('searches')) || [];
+    if (searches.indexOf(nameChar) === -1) {
+        searches.push(nameChar);
+        localStorage.setItem('searches', JSON.stringify(searches));
+    }
+
+    // MARVEL fetch request
     fetch(marvelUrl)
-    .then((res) => res.json())
-    .then((data) => MarvelCard(data))
+        .then((res) => res.json())
+        .then((data) => MarvelCard(data));
 
-//OMDB fetch request
-   // fetch(imdbUrl)
-    //.then((res) => res.json())
-    //.then((data) => console.log(data))
-
+    // WIKI fetch request
+    fetch(wikiUrl)
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+});
     
 
-})
+
 
     //random avenger picker functionality
 //pick random avenger button event listener
@@ -68,19 +70,50 @@ randomBtn.on('click', function(){
     var randomCharIs = charNames[randomChar]
     console.log(randomCharIs)
     var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name="+randomCharIs+"&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe"
-    var imdbUrl = "https://imdb-api.com/en/API/SearchSeries/k_h6mhz1ew/" + randomCharIs
+    var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${randomCharIs}&exchars=20&exintro=1&explaintext=1&redirects=1&origin=*`;  
 
     fetch(marvelUrl)
         .then((res) => res.json())
         
         .then((data) =>  MarvelCard(data))
-      // fetch(imdbUrl)
-       // .then((res) => res.json())
-       // .then((data) =>console.log(data))
-       
+      
+        fetch(wikiUrl)
+       .then((res) => res.json())
+       .then((data) => console.log(data))
+      
+
         
        
     })
+
+
+
+
+/* 
+
+this part contains a ready function but we need to meet before using it how ever you can view the data in console log
+
+
+function wikiCard(data){
+    $("#card").empty();
+    var description = document.createElement('p');
+    var pageId = Object.keys(data.query.pages)[0];
+    description.innerHTML = data.query.pages[pageId].extract;
+    var div = document.createElement('div');
+    div.classList = 'h-screen flex items-center justify-center';
+    var avengerName = document.createElement('h2');
+    avengerName.textContent = data.query.pages[pageId].title;
+    avengerName.classList = "text-center text-2xl ";
+    div.classList = 'bg-red-700';
+    card.appendChild(div);
+    div.appendChild(avengerName);
+    div.appendChild(description);
+}
+
+*/
+
+
+
 
     function MarvelCard(data){
         $("#card").empty()
@@ -106,17 +139,22 @@ randomBtn.on('click', function(){
         console.log(thumbNailRes)
        
     }
-var searchTerm = getCharacterName('Spider-Man (12344)');
 
-var maxChars = 20;
-// wiki api 
-fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`)
-.then((data)=>data.json())
-.then((result)=>console.log(result))
 
-// Getting character name from reponse object title
-function getCharacterName(title){
-    var index = title.indexOf("(");  // Find the index of the opening parenthesis
-    var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
-    return characterName;
-}
+
+
+// var searchTerm = getCharacterName('Spider-Man (12344)');
+
+// var maxChars = 20;
+// // wiki api 
+// fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`)
+// .then((data)=>data.json())
+// .then((result)=>console.log(result))
+
+// // Getting character name from reponse object title
+// function getCharacterName(title){
+//     var index = title.indexOf("(");  // Find the index of the opening parenthesis
+//     var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
+//     return characterName;
+// }
+

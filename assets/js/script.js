@@ -39,6 +39,14 @@ searchBtn.on('click',function(){
     var nameChar = inputEl.val()
     var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name="+nameChar+"&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe"
     var imdbUrl = "https://imdb-api.com/en/API/SearchSeries/k_h6mhz1ew/" + nameChar   
+
+        // Save search input to local storage
+        var searches = JSON.parse(localStorage.getItem('searches')) || [];
+        if (searches.indexOf(nameChar) === -1) {
+            searches.push(nameChar);
+            localStorage.setItem('searches', JSON.stringify(searches));
+        }
+        
 // MARVEL fetch request
     fetch(marvelUrl)
     .then((res) => res.json())
@@ -80,15 +88,19 @@ randomBtn.on('click', function(){
        var thumbNailRes = data.data.results[0].thumbnail.path
         thumbNail.setAttribute('src',thumbNailRes+'.jpg')
         var div = document.createElement('div')
+        div.classList = 'h-screen flex items-center justify-center'
         var avengerName = document.createElement('h2')
         var description = document.createElement('p')
         avengerName.textContent = data.data.results[0].name
+        avengerName.classList = "text-center text-2xl "
+        thumbNail.classlist = "content-center"
         card.appendChild(div)
         div.classList = 'bg-red-700'
         div.appendChild(avengerName)
-        div.appendChild(description)
+       
         description.textContent = data.data.results[0].description
         card.appendChild(thumbNail)
+        div.appendChild(description)
         console.log(data.data.results[0].name)
         console.log(data)
         console.log(thumbNailRes)

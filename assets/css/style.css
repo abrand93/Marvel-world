@@ -2,13 +2,16 @@
     --dark : rgba(0, 0, 0, 0.787);
     
 }
-
+*{
+    font-size: 110%;
+}
 body{
     background-image:url(../img/54677.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     backdrop-filter: blur(3px);
+    height: fit-content;
 }
 .container{
     height: 40vh;

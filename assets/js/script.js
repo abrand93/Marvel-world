@@ -42,6 +42,10 @@ var footer = document.querySelector('#footer')
 //search button event listener
 searchBtn.on('click', function() {
     var nameChar = inputEl.val();
+    if(nameChar === ''){
+        $('.modal-alert').removeClass('hidden')
+        return;
+    }
     var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name=" + nameChar + "&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe";
     var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${nameChar}&exchars=250&exintro=1&explaintext=1&redirects=1&origin=*`;
 
@@ -83,16 +87,8 @@ randomBtn.on('click', function(){
         fetch(wikiUrl)
        .then((res) => res.json())
        .then((data) => wikiCard(data))
-      
-        
-        
-       
+
     })
-
-
-
-
-
 
 // this part contains a ready function but we need to meet before using it how ever you can view the data in console log
 
@@ -115,11 +111,6 @@ randomBtn.on('click', function(){
     // div.appendChild(description);
      console.log(description)
 }
-
-
-
-
-
 
     function MarvelCard(data){
         $("#card").empty()
@@ -155,9 +146,6 @@ randomBtn.on('click', function(){
              card.classList = 'hide'
             modalDisplay.classList.remove("hidden")
            modalDisplay.classList = 'h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50'
-           
-            
-
 
         })
             
@@ -186,7 +174,7 @@ randomBtn.on('click', function(){
    //close button to hide modal
 //close button event listener
 closeBtn.on('click',function(){
-   
+    $('.modal-alert').addClass('hidden');
     modalDisplay.classList = "hidden"
     card.classList.remove('hide')
     card.classList = 'container mx-auto px-4 content-center max-w-md m-2 rounded'

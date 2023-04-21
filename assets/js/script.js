@@ -3,13 +3,12 @@ var searchBtn = $('#search');
 var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie (Samantha Parrington)','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
-var modalDisplay = $('#modal')
-var closeBtn = $('#close-button')
+var modalDisplay = document.querySelector('.modal')
+var closeBtn = $('.close-button')
 var card = document.querySelector('#card')
  var cardTwo = document.querySelector('#wikiCard')
 var maxChars = 200
-
-
+var wikiPEL = document.querySelector('#wikPEl')
     //auto-complete functionality
     $(document).ready(function(){
         $('#input').on("input",function(){ //input event listener triggered whenever a user types into search bar
@@ -99,20 +98,21 @@ randomBtn.on('click', function(){
 
  function wikiCard(data){
 
-    $("#wikiCard").empty();
+    $("#model").empty();
     var description = document.createElement('p');
     var pageId = Object.keys(data.query.pages)[0];
-    description.innerHTML = data.query.pages[pageId].extract;
-    var div = document.createElement('div');
-    div.classList = 'h-screen flex items-center justify-center';
-    var avengerName = document.createElement('h2');
-    avengerName.textContent = data.query.pages[pageId].title;
-    avengerName.classList = "text-center text-2xl ";
-    div.classList = 'bg-red-700';
-    cardTwo.appendChild(div);
-    div.appendChild(avengerName);
-    div.appendChild(description);
-    console.log(description)
+     //description.innerHTML = data.query.pages[pageId].extract;
+     wikiPEL.innerHTML= data.query.pages[pageId].extract
+    // var div = document.createElement('div');
+    // div.classList = 'h-screen flex items-center justify-center';
+    // var avengerName = document.createElement('h2');
+    // avengerName.textContent = data.query.pages[pageId].title;
+    // avengerName.classList = "text-center text-2xl ";
+    // div.classList = 'bg-red-700';
+    //  modalDisplay.appendChild('p');
+    // div.appendChild(avengerName);
+    // div.appendChild(description);
+     console.log(description)
 }
 
 
@@ -148,17 +148,12 @@ randomBtn.on('click', function(){
         // console.log(thumbNailRes)
 
         $(wikiButton).on( 'click', function (){
+            
             card.classList = 'hide'
-            cardTwo.classList.remove("hide")
-            var goBack = document.createElement("BUTTON")
-            cardTwo.appendChild(goBack)
-            goBack.textContent = 'Back'
-            $(goBack).on('click',function (){
-                card.classList.remove('hide')
-                cardTwo.classList= 'hide'
-                card.classList = 'container mx-auto px-4 content-center max-w-md m-2 rounded'
-
-            })
+            modalDisplay.classList.remove("hidden")
+           modalDisplay.classList = 'h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50'
+           
+            
 
 
         })
@@ -188,6 +183,9 @@ randomBtn.on('click', function(){
    //close button to hide modal
 //close button event listener
 closeBtn.on('click',function(){
-    modalDisplay.classList.remove('hidden')
+   
+    modalDisplay.classList = "hidden"
+    card.classList.remove('hide')
+    card.classList = 'container mx-auto px-4 content-center max-w-md m-2 rounded'
 })
 

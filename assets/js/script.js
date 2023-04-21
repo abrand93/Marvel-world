@@ -194,7 +194,7 @@ var x = setInterval(function() {
         ${seconds}<br><span class="text-xs">seconds</span>
       </div>
     `;
-  if (distance < 0) {
+  if (distance <= 0) {
     clearInterval(x);
     countdown.innerHTML = "The event is here!";
   }

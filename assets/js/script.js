@@ -166,3 +166,52 @@ closeBtn.on('click',function(){
     modalDisplay.classList.remove('hidden')
 })
 
+
+var countdown = document.getElementById("countdown");
+var countDownDate = new Date("June 16, 2023 12:00:00").getTime(); 
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `
+        <p> Count down to  <img src="https://slack-imgs.com/?c=1&o1=wi32.he32.si&url=https%3A%2F%2Fawesome-con.com%2Fwp-content%2Fuploads%2F2019%2F06%2F114x114-Favicon.png"> Awesome-Con to get your tickets <a href="https://awesome-con.com/">Click Here</a></p>
+      <div class="bg-black text-white p-4 rounded-lg inline-block mx-2">
+        ${days}<br><span class="text-xs">days</span>
+      </div>
+      <div class="bg-black text-white p-4 rounded-lg inline-block mx-2">
+        ${hours}<br><span class="text-xs">hours</span>
+      </div>
+      <div class="bg-black text-white p-4 rounded-lg inline-block mx-2">
+        ${minutes}<br><span class="text-xs">minutes</span>
+      </div>
+      <div class="bg-black text-white p-4 rounded-lg inline-block mx-2">
+        ${seconds}<br><span class="text-xs">seconds</span>
+      </div>
+    `;
+  if (distance < 0) {
+    clearInterval(x);
+    countdown.innerHTML = "The event is here!";
+  }
+}, 1000);
+function displayTime() {
+    var date = new Date();
+    var month = date.toLocaleString('default', { month: 'short' });
+    var day = date.getDate().toString().padStart(2, '0');
+    var hours = date.getHours().toString().padStart(2, '0');
+    var minutes = date.getMinutes().toString().padStart(2, '0');
+    var seconds = date.getSeconds().toString().padStart(2, '0');
+    var time = month + " " + day + " " + hours + ":" + minutes + ":" + seconds;
+    var clock = document.getElementById('clock');
+    var currentTime = clock.innerHTML;
+    if (currentTime !== time) {
+        clock.innerHTML = time;
+    }
+}
+displayTime();
+setInterval(displayTime, 1000);

@@ -24,7 +24,9 @@ header{
 h1{  
     color: rgb(184, 22, 22);    
     font-weight: bold;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+
 }
 button{
     background-color: black;
@@ -43,3 +45,25 @@ color: white;
     font-family: 'Sedgwick Ave Display', cursive;
 
 }
+footer p{
+
+    font-size: 24px;
+    padding-right: 50px;
+    
+    }
+    #card {
+        margin-bottom: 400px;
+        margin-top: 100px;
+      }
+      #clock {
+        position: fixed;
+        top: 20px;
+        left: 30px;
+        padding: 10px;
+        background-color: #280d0d;
+        color: rgb(161, 89, 89);
+        border: 1px solid #7f3333;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+      }
+    

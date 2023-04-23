@@ -65,7 +65,7 @@ searchBtn.on('click', function() {
     // WIKI fetch request
     fetch(wikiUrl)
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => wikiCard(data));
 });
     
 
@@ -95,7 +95,7 @@ randomBtn.on('click', function(){
 
  function wikiCard(data){
 
-    $("#model").empty();
+    $(".model").empty();
     var description = document.createElement('p');
     var pageId = Object.keys(data.query.pages)[0];
      //description.innerHTML = data.query.pages[pageId].extract;
@@ -132,9 +132,11 @@ randomBtn.on('click', function(){
         description.textContent = data.data.results[0].description
         div.appendChild(thumbNail)
         div.appendChild(description)
-        wikiButton = document.createElement("BUTTON")
+        var wikiButton = document.createElement("BUTTON")
+       
         div.appendChild(wikiButton)
-        wikiButton.textContent = "Click for more info"
+        wikiButton.classList = "font-normal md:font-bold p-2 hover:bg-sky-700"
+        wikiButton.textContent = "Click here for more info "
         // console.log(data.data.results[0].name)
         // console.log(data)
         // console.log(thumbNailRes)

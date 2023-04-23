@@ -54,11 +54,14 @@ footer p{
     padding-right: 50px;
     
     }
-    #card {
+footer{
+    margin-top: 20px;
+}
+#card {
         margin-bottom: 400px;
         margin-top: 100px;
       }
-      #clock {
+#clock {
         position: fixed;
         top: 20px;
         left: 30px;

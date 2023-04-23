@@ -26,11 +26,11 @@
 <body>
     <header class="flex justify-center items-center text-8xl">
         <h1 class = "bg-black text-red-600 opacity-80 py-3 px- rounded-full text-5xl font-bold hover:transform hover:scale-90 transition duration-300">World Of Marvel</h1>
-        <div id="clock"></div>
+        <div id="clock" class="screenhide"></div>
     </header>
    
-    <div class="flex container mx-auto justify-center items-end">
-        <div class="search-form mx-auto px-10 py-8 rounded-lg grid grid-cols-4 grid-rows-1 gap-6">
+    <div id="theFormScreen" class="flex container mx-auto justify-center items-end">
+        <div  class="search-form mx-auto px-10 py-8 rounded-lg grid grid-cols-4 grid-rows-1 gap-6">
             <input type="text" placeholder="Search a marvel character" class="col-span-3 p-3 rounded" id="input">
            
             
@@ -47,7 +47,7 @@
 </section> 
  <!-- <div id="wikiCard" class="absolute inset-x-0 bottom-0 h-16 hide"></div>  -->
       <!-- Modal to display more description about a character-->
-      <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden ">
+      <div id="modalA" class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden ">
         <div class="bg-white rounded shadow-lg w-1/3">
             <div class="border-b px-4 py-2">    
                 <h2 class="font">Description</h2>
@@ -63,9 +63,9 @@
     </div>    
     
     <!--New Div is in here-->    
-    <div id="footer" class="mt-50 hide">
+    <div id="footer" class="mt-50 screenhide">
  
-        <footer class=" italic hover:not-italic bg-black text-red-600 opacity-80 py-3 px-6 rounded-full text-base font-bold hover:transform hover:scale-50 transition duration-200">
+        <footer class=" italic hover:not-italic bg-black text-red-600 opacity-80 py-3 px-6 rounded-full text-base font-bold">
            <p class ="flex  justify-center items-center text-4xl" id="countdown"></p>
         </footer>
        </div>

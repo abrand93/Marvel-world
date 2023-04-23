@@ -70,3 +70,25 @@ footer p{
 .hide{
     display: none;
 }
+@media only screen and (max-width: 992px) {
+    .screenhide{
+        display: none;
+  }
+  #theFormScreen{
+    margin-top: 200px;
+  }
+
+
+  #modalA{
+    width: calc(screen);
+    margin: 50px;
+  }
+
+
+  #modalA p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    
+  }
+
+}

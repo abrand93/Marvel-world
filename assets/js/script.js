@@ -55,7 +55,7 @@ searchBtn.on('click', function() {
         })
         return; //exits the function
     }
-    var marvelUrl = "http://gateway.marvel.com/v1/public/characters?name=" + nameChar + "&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe";
+    var marvelUrl = "https://gateway.marvel.com/v1/public/characters?name=" + nameChar + "&limit=100&apikey=3a63bd6dec07e5572fe2f09b18064abe";
     var wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${nameChar}&exchars=1000&exintro=1&explaintext=1&redirects=1&origin=*`;
 
 

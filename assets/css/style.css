@@ -2,9 +2,7 @@
     --dark : rgba(0, 0, 0, 0.787);
     
 }
-/* *{
-    font-size: 110%;
-} */
+
 body{
     background-image:url(../img/54677.jpg);
     background-size: cover;
@@ -12,7 +10,6 @@ body{
     background-repeat: no-repeat;
     backdrop-filter: blur(3px);
     height: fit-content;
-    /* width: fit-content; */
 
 }
 .container{
@@ -23,7 +20,8 @@ header{
     height: 20vh;
     margin-top: 0%;
     margin-bottom: 0px;
-    background-color: var(--dark)
+    background-color: rgba(0, 0, 0, 0.864);
+    
 }
 h1{  
     color: rgb(184, 22, 22);    
@@ -56,9 +54,7 @@ footer p{
     padding-right: 50px;
     
     }
-footer{
-    margin-top: 20px;
-}
+
 #card {
         margin-bottom: 400px;
         margin-top: 100px;
@@ -87,39 +83,10 @@ footer{
   }
 
 @media only screen and (max-width: 992px) {
-    body{
-        display: block;
-        /* justify-content: center; */
-        text-align: center;
-    }
-    .screenhide{
+   
+  .screenhide{
         display: none;
   }
-  #theFormScreen{
-    margin-top: 200px;
-  }
-
-  #modalA p{
-    font-size: 12px;    
-  }
-
-  #random{
-    font-size: 75%;
-  }
-
-  #search{
-    font-size: 75%;
-  }
-
-  .text-5xl {
-    font-size: 1rem;
-    line-height: 1;
-}
-#wikPEl{
-    display: flex;
-    flex-wrap: wrap ;
-    max-width: 320px;
-}
 
 }
 

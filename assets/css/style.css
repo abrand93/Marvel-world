@@ -2,9 +2,9 @@
     --dark : rgba(0, 0, 0, 0.787);
     
 }
-*{
+/* *{
     font-size: 110%;
-}
+} */
 body{
     background-image:url(../img/54677.jpg);
     background-size: cover;
@@ -12,10 +12,11 @@ body{
     background-repeat: no-repeat;
     backdrop-filter: blur(3px);
     height: fit-content;
+    /* width: fit-content; */
+
 }
 .container{
-    height: 40vh;
-    
+    height: 80vh;    
     
 }
 header{
@@ -31,6 +32,7 @@ h1{
     font-size: 32px;
 
 }
+
 button{
     background-color: black;
     color: white;
@@ -76,3 +78,49 @@ footer{
 .hide{
     display: none;
 }
+
+#modalA{
+    
+    width: calc(screen);
+    padding-top: 275px;
+    
+  }
+
+@media only screen and (max-width: 992px) {
+    body{
+        display: block;
+        /* justify-content: center; */
+        text-align: center;
+    }
+    .screenhide{
+        display: none;
+  }
+  #theFormScreen{
+    margin-top: 200px;
+  }
+
+  #modalA p{
+    font-size: 12px;    
+  }
+
+  #random{
+    font-size: 75%;
+  }
+
+  #search{
+    font-size: 75%;
+  }
+
+  .text-5xl {
+    font-size: 1rem;
+    line-height: 1;
+}
+#wikPEl{
+    display: flex;
+    flex-wrap: wrap ;
+    max-width: 320px;
+}
+
+}
+
+

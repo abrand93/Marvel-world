@@ -1,17 +1,21 @@
+//Selectors
+
 var inputEl = $('#input');
 var searchBtn = $('#search');
-var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie (Samantha Parrington)','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
 var randomBtn = $('#random')
 var dataList = $('#names')
 var modalDisplay = document.querySelector('.modal')
 var closeBtn = $('.close-button')
 var card = document.querySelector('#card')
  var cardTwo = document.querySelector('#wikiCard')
-var maxChars = 200
 var wikiPEL = document.querySelector('#wikPEl')
 var footer = document.querySelector('#footer')
-    //auto-complete functionality
-    $(document).ready(function(){
+
+var charNames = ['Ant-Man (Scott Lang)', 'Black Panther','Bucky','Captain America','Captain Marvel (Carol Danvers)','Doctor Strange','Drax','Falcon','Gamora','Groot','Hawkeye','Hulk','Iron Man','Mantis','Nebula','Pepper Potts','Rocket Raccoon','Scarlet Witch','Spider-Man (Peter Parker)','Star-Lord (Peter Quill)','Thor','Valkyrie (Samantha Parrington)','War Machine (Marvel: Avengers Alliance)','Wasp','Wong']
+var maxChars = 200
+
+//auto-complete functionality
+$(document).ready(function(){
         $('#input').on("input",function(){ //input event listener triggered whenever a user types into search bar
             dataList.empty()
             var query = $(this).val()
@@ -28,14 +32,14 @@ var footer = document.querySelector('#footer')
                         })
                         $("#input").autocomplete({  //autocomplete ui feature of jQuery(takes an array to autocomplete a user input)
                             source: tempArray
-                            });              
+                            });             
     
                     })
 
             }//end if-statement
     
         })
-    })
+})
     
      
     //search functionality
@@ -90,25 +94,12 @@ randomBtn.on('click', function(){
 
     })
 
-// this part contains a ready function but we need to meet before using it how ever you can view the data in console log
-
-
  function wikiCard(data){
 
     $(".model").empty();
     var description = document.createElement('p');
     var pageId = Object.keys(data.query.pages)[0];
-     //description.innerHTML = data.query.pages[pageId].extract;
      wikiPEL.innerHTML= data.query.pages[pageId].extract
-    // var div = document.createElement('div');
-    // div.classList = 'h-screen flex items-center justify-center';
-    // var avengerName = document.createElement('h2');
-    // avengerName.textContent = data.query.pages[pageId].title;
-    // avengerName.classList = "text-center text-2xl ";
-    // div.classList = 'bg-red-700';
-    //  modalDisplay.appendChild('p');
-    // div.appendChild(avengerName);
-    // div.appendChild(description);
      console.log(description)
 }
 
@@ -137,9 +128,7 @@ randomBtn.on('click', function(){
         div.appendChild(wikiButton)
         wikiButton.classList = "font-normal md:font-bold p-2 hover:bg-sky-700"
         wikiButton.textContent = "Click here for more info "
-        // console.log(data.data.results[0].name)
-        // console.log(data)
-        // console.log(thumbNailRes)
+        
 
         $(wikiButton).on( 'click', function (){
            
@@ -150,28 +139,8 @@ randomBtn.on('click', function(){
            modalDisplay.classList = 'h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50'
 
         })
-            
-        
-       
+
     }
-
-
-
-
-// var searchTerm = getCharacterName('Spider-Man (12344)');
-
-// var maxChars = 20;
-// // wiki api 
-// fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${searchTerm}&gsrlimit=20&prop=pageimages|extracts&exchars=${maxChars}&exintro&explaintext&exlimit=max&format=json&origin=*`)
-// .then((data)=>data.json())
-// .then((result)=>console.log(result))
-
-// // Getting character name from reponse object title
-// function getCharacterName(title){
-//     var index = title.indexOf("(");  // Find the index of the opening parenthesis
-//     var characterName = title.substring(0,index).trim();  // taking only part of string before paranthesis and .trim() removes any spaces around our string
-//     return characterName;
-// }
 
    //close button to hide modal
 //close button event listener
@@ -182,7 +151,7 @@ closeBtn.on('click',function(){
     card.classList = 'container mx-auto px-4 content-center max-w-md m-2 rounded'
 })
 
-
+//Timer countdown
 var countdown = document.getElementById("countdown");
 var countDownDate = new Date("June 16, 2023 12:00:00").getTime(); 
 var x = setInterval(function() {

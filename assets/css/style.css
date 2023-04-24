@@ -2,17 +2,21 @@
     --dark : rgba(0, 0, 0, 0.787);
     
 }
-
+/* *{
+    font-size: 110%;
+} */
 body{
     background-image:url(../img/54677.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     backdrop-filter: blur(3px);
+    height: fit-content;
+    /* width: fit-content; */
+
 }
 .container{
-    height: 40vh;
-    
+    height: 80vh;    
     
 }
 header{
@@ -28,6 +32,7 @@ h1{
     font-size: 32px;
 
 }
+
 button{
     background-color: black;
     color: white;
@@ -51,11 +56,14 @@ footer p{
     padding-right: 50px;
     
     }
-    #card {
+footer{
+    margin-top: 20px;
+}
+#card {
         margin-bottom: 400px;
         margin-top: 100px;
       }
-      #clock {
+#clock {
         position: fixed;
         top: 20px;
         left: 30px;
@@ -70,7 +78,20 @@ footer p{
 .hide{
     display: none;
 }
+
+#modalA{
+    
+    width: calc(screen);
+    padding-top: 275px;
+    
+  }
+
 @media only screen and (max-width: 992px) {
+    body{
+        display: block;
+        /* justify-content: center; */
+        text-align: center;
+    }
     .screenhide{
         display: none;
   }
@@ -78,17 +99,28 @@ footer p{
     margin-top: 200px;
   }
 
-
-  #modalA{
-    width: calc(screen);
-    margin: 50px;
-  }
-
-
   #modalA p{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 12px;
-    
+    font-size: 12px;    
   }
+
+  #random{
+    font-size: 75%;
+  }
+
+  #search{
+    font-size: 75%;
+  }
+
+  .text-5xl {
+    font-size: 1rem;
+    line-height: 1;
+}
+#wikPEl{
+    display: flex;
+    flex-wrap: wrap ;
+    max-width: 320px;
+}
 
 }
+
+

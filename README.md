@@ -8,7 +8,7 @@ We wanted one central location to look up all of the characters that Marvel has 
 
 ## Installation
 - There is nothing required to be installed. You can use the following link to navigate to the wep page:
-    <!-- - link goes here  -->
+    https://abrand93.github.io/Marvel-world/
 
 ## Usage
 - Either enter your favorite character in the search bar or select a random avenger button. By doing so, you will get information on a Marvel character as well as a picture of them.
@@ -29,6 +29,7 @@ We wanted one central location to look up all of the characters that Marvel has 
 - Andrew B - https://github.com/abrand93
 
 - We have used the following APIs to fetch data:
+    - google - font Sedgwick Ave Display
     - Marvel API - https://developer.marvel.com/
     - Wikipedia API - https://www.mediawiki.org/wiki/API:Main_page
 

@@ -1,4 +1,4 @@
-# Project1-Marvel-API
+# Marvel-World
 
 ## Description
 - Our goal is to create an easy access of information on all of our favorite Marvel characters.

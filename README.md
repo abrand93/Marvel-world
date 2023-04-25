@@ -1,8 +1,14 @@
-# Project1-Marvel-API
+# Marvel World
 
 ## Description
 - Our goal is to create an easy access of information on all of our favorite Marvel characters.
 We wanted one central location to look up all of the characters that Marvel has to offer. We no longer have to Google individual characters, but instead, we can have them displayed in one central location.
+
+User story: As a user I want to be able to look up my favorite Marvel character.
+Then I am presented with a photo and a brief description.
+When I click on more information:
+I am presented with a Wikipedia description.
+
 
 - We learned how to work as a team. First, we learned how to merge feature branches. Second, we learned how to create pull requests. Lastly, we also learned how to divide up the tasks amongst each other. 
 

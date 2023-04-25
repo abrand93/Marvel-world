@@ -1,4 +1,4 @@
-# Project1-Marvel-API
+# Marvel-World
 
 ## Description
 - Our goal is to create an easy access of information on all of our favorite Marvel characters.
@@ -29,7 +29,7 @@ We wanted one central location to look up all of the characters that Marvel has 
 - Andrew B - https://github.com/abrand93
 
 - We have used the following APIs to fetch data:
-    - google - font Sedgwick Ave Display
+    - Google Fonts - Sedgwick Ave Display (https://fonts.google.com/specimen/Sedgwick+Ave+Display?query=Sedgwick+Ave+Display)
     - Marvel API - https://developer.marvel.com/
     - Wikipedia API - https://www.mediawiki.org/wiki/API:Main_page
 
